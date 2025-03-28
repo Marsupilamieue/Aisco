@@ -12,37 +12,35 @@ public class DonationFactory
 
     }
 
-    public static Donation createDonation(String fullyQualifiedName, Object ... base) {
+    public static Donation createDonation(String fullyQualifiedName, Object... base) {
         Donation record = null;
         try {
             Class<?> clz = Class.forName(fullyQualifiedName);
-            Constructor<?> constructor = clz.getConstructors()[0];
-            record = (Donation) constructor.newInstance(base);
-        }
-        catch (IllegalArgumentException e)
-        {
+            Constructor<?>[] constructors = clz.getConstructors();
+            Constructor<?> matchingConstructor = null;
+    
+            // Cari constructor yang cocok dengan jumlah dan tipe argumen
+            for (Constructor<?> constructor : constructors) {
+                if (constructor.getParameterCount() == base.length) {
+                    matchingConstructor = constructor;
+                    break;
+                }
+            }
+    
+            if (matchingConstructor == null) {
+                throw new IllegalArgumentException("No matching constructor found for the given arguments.");
+            }
+            record = (Donation) matchingConstructor.newInstance(base);
+        } catch (IllegalArgumentException e) {
             LOGGER.severe("Failed to create instance of Donation.");
             LOGGER.severe("Given FQN: " + fullyQualifiedName);
             LOGGER.severe("Failed to run: Check your constructor argument");
+            e.printStackTrace();
             System.exit(20);
-        }
-        catch (ClassCastException e)
-        {   LOGGER.severe("Failed to create instance of Donation.");
-            LOGGER.severe("Given FQN: " + fullyQualifiedName);
-            LOGGER.severe("Failed to cast the object");
-            System.exit(30);
-        }
-        catch (ClassNotFoundException e)
-        {
+        } catch (Exception e) {
             LOGGER.severe("Failed to create instance of Donation.");
             LOGGER.severe("Given FQN: " + fullyQualifiedName);
-            LOGGER.severe("Decorator can't be applied to the object");
-            System.exit(40);
-        }
-        catch (Exception e)
-        {
-            LOGGER.severe("Failed to create instance of Donation.");
-            LOGGER.severe("Given FQN: " + fullyQualifiedName);
+            e.printStackTrace();
             System.exit(50);
         }
         return record;

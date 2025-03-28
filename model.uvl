@@ -16,7 +16,7 @@ features
 			Donation {abstract true}
 				alternative
 					DirectPayment
-					PaymentCash
+					PaymentCreditCard
 					PaymentEWallet
 					PaymentTransfer
 

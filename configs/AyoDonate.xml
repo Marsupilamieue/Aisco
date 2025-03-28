@@ -7,9 +7,9 @@
 	<feature automatic="selected" name="FinancialReport"/>
 	<feature automatic="selected" name="Income"/>
 	<feature manual="selected" name="Expense"/>
-	<feature automatic="selected" name="Donation"/>
+	<feature automatic="selected" manual="selected" name="Donation"/>
 	<feature automatic="unselected" name="DirectPayment"/>
-	<feature automatic="unselected" name="PaymentCash"/>
+	<feature manual="selected" name="PaymentCreditCard"/>
 	<feature automatic="unselected" name="PaymentEWallet"/>
-	<feature manual="selected" name="PaymentTransfer"/>
+	<feature automatic="unselected" name="PaymentTransfer"/>
 </configuration>

@@ -54,7 +54,7 @@ public class CharitySchool {
 
     public static void addDonation()
     {  
-        Donation donate = DonationFactory.createDonation("aisco.donation.pgateway.DonationImpl");
+        Donation donate = DonationFactory.createDonation("aisco.donation.core.DonationImpl");
         donate.addDonation();
         donate.getDonation();
     }
