@@ -1,6 +1,6 @@
-module aisco.donation.ptransfer{
+module aisco.donation.pcreditcard{
     requires aisco.donation.core;
-    exports aisco.donation.ptransfer;
+    exports aisco.donation.pcreditcard;
     requires java.logging;
     requires payment.page.core;
 }

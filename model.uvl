@@ -7,6 +7,7 @@ features
 				or
 					Activity
 					Operational
+					ResourceDonation
 			FinancialReport {abstract true}
 				mandatory
 					Income
@@ -16,7 +17,7 @@ features
 			Donation {abstract true}
 				alternative
 					DirectPayment
-					PaymentCash
+					PaymentCreditCard
 					PaymentEWallet
 					PaymentTransfer
 

@@ -23,8 +23,8 @@
 	"DirectPayment":[
 		"aisco.donation.core"
 	],
-	"PaymentCash": [
-		"aisco.donation.pcash"
+	"PaymentCreditCard": [
+		"aisco.donation.pcreditcard"
 	],
 	"PaymentTransfer": [
 		"aisco.donation.ptransfer"
